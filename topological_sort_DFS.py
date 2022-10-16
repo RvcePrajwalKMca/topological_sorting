@@ -89,7 +89,7 @@ def get_topological_sorting_helper(v, visited, on_stack, tlist):
 
 
 def anime(graph, connections, wind_title):
-    fig = plt.figure(figsize=(11, 6))
+    fig = plt.figure(figsize=(12, 6))
     fig.canvas.manager.set_window_title(wind_title)
     ind = (len(connections) - 1)
     for i in range(ind):
