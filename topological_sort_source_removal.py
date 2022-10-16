@@ -8,7 +8,7 @@ def anime(graph, edge_first, removal):
     graph.add_edges_from(edge_first)
     nx.draw(graph, with_labels=True)
     plt.show(block=False)
-    plt.pause(5)
+    plt.pause(6)
     plt.clf()
     for i in removal:
         # text.set_text("topological order = "+i+" ")
@@ -18,7 +18,7 @@ def anime(graph, edge_first, removal):
         nx.draw(graph, with_labels=True)
         plt.show(block=False)
         if removal.index(i) < len(removal) - 1:
-            plt.pause(2)
+            plt.pause(3)
             plt.clf()
         else:
             plt.pause(5)
@@ -45,9 +45,24 @@ G = nx.DiGraph()
 fig = plt.figure(figsize=(10, 6))
 fig.canvas.manager.set_window_title("TOPOLOGICAL SORTING USING SOURCE REMOVAL")
 text = []
-vtx, e = map(int, input().split())
+# vtx, e = map(int, input().split())
+while True:
+    try:
+        vtx = int(input("Enter number of vertices:"))
+    except Exception as e:
+        print("\nEnter only integer values\n")
+    else:
+        break
+while True:
+    try:
+        edges = int(input("Enter number of edges:"))
+    except Exception as e:
+        print("\nEnter only integer values\n")
+    else:
+        break
 out = []
-for i in range(e):
+for i in range(edges):
+    print("Enter source and destination for edge no ",(i+1)," in format <src> <dest>")
     u, v = map(str, input().split())
     out.append((u, v))
     u = ord(u) - ord('A')
